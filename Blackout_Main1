@@ -14,7 +14,7 @@ if game.PlaceId == 15432890326 then
 
 
 		local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/kirvZZ/White-Ware_/refs/heads/main/Blackout_Library"))() -- Could Also Save It In Your Workspace And Do loadfile("Library.lua")()
-		local Window = Library:New({Name = "[BLACKOUT: REVIVAL] v1.24", Accent = Color3.fromRGB(72, 107, 255)})
+		local Window = Library:New({Name = "[BLACKOUT: REVIVAL] v1.23", Accent = Color3.fromRGB(72, 107, 255)})
 
 		--
 		local Aims = Window:Page({Name = "Combat"})
@@ -368,6 +368,7 @@ if game.PlaceId == 15432890326 then
 				if p == "PlatformStand" then
 					if nostopcontent == true then
 						Char:FindFirstChild("Humanoid").PlatformStand = false					
+						task.wait(.08)
 						Char:FindFirstChild("HumanoidRootPart").Anchored = false
 					end
 				end
