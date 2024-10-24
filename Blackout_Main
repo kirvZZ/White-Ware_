@@ -27,9 +27,10 @@ if game.PlaceId == 15432890326 then
 		local Incognito = Misc:Section({Name = "Incognito", Side = "Left"})
 		local Stamina = Misc:Section({Name = "Stamina-Modifier", Side = "Left"})
 		local Cameraz = Misc:Section({Name = "Camera", Side = "Left"})
+		local Blindxzc = Misc:Section({Name = "Blind", Side = "Right"})
 		local HideBind = Misc:Section({Name = "Hide Menu Key", Side = "Right"})
-		local Blindxzc = Player:Section({Name = "Blind", Side = "Right"})
-		--
+
+--
 		
 		
 		--VALUES
