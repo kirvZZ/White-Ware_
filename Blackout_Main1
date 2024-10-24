@@ -1,4 +1,4 @@
- if game.PlaceId == 15432890326 then
+if game.PlaceId == 15432890326 then
 	if game.CoreGui:FindFirstChild("SplixCode9") then
 		game:GetService("StarterGui"):SetCore("SendNotification",{Title = "White-Ware",Text = "Script already executed.",Duration = 10})
 	else
@@ -29,16 +29,16 @@
 		local FastuXf = Misc:Section({Name = "Loot", Side = "Right"})
 		local nstox = Misc:Section({Name = "No Swag", Side = "Right"})
 		local HideBind = Misc:Section({Name = "Menu", Side = "Right"})
-		
+
 		--
 
 
 		--VALUES
-		
+
 		local scpath = workspace.Debris.Loot
 		local scpath2 = workspace.WaveSurvival.Loot
 		local scpath3 = workspace.Debris.Airdrop
-		
+
 		local allowed_loot = {
 			"DuffelBag",
 			"DeathBag",
@@ -55,18 +55,18 @@
 
 		local infstamina = false
 		local staminaval = 100
-		
+
 		local fastl = false
 		local fastum = 7
-		
-		
+
+
 		_G.Flightx827Key = Enum.KeyCode.H
 		_G.Scriptx827Key = Enum.KeyCode.F8
 		_G.Flightx827Speed = 2
 		_G.Flightx827Noclip = true
 
 		local Blinded = false
-		
+
 		local nostopcontent = false
 
 		_G.EnabledJJSXKSGA = false
@@ -172,7 +172,7 @@
 				end
 			end)
 		end
-		
+
 		function FastUsefunc(v)
 			local V,ProtectedCall = pcall(function()
 
@@ -239,7 +239,7 @@
 				end
 			end)
 		end
-		
+
 		function vggd(v)
 			if ((v) == true) then
 				game.Players.LocalPlayer.CameraMaxZoomDistance = 10000
@@ -319,61 +319,60 @@
 				end
 			end
 		end)()
-		
+
 		function autofst()
 			scpath.ChildAdded:Connect(function(c)
-	if fastl == true then
-		if table.find(allowed_loot,c.Name) then
-			task.wait(.09)
-			if c:FindFirstChild("OpenLootTable") then
-				c["OpenLootTable"].HoldDuration = 0
-				c["OpenLootTable"].MaxActivationDistance = fastum
-			elseif c:FindFirstChild("PickUpMoney") then
-				c["PickUpMoney"].HoldDuration = 0
-				c["PickUpMoney"].MaxActivationDistance = fastum
-			end
-		end
-	end
-end)
-scpath2.ChildAdded:Connect(function(c)
-	if fastl == true then
-		if table.find(allowed_loot,c.Name) then
-			task.wait(.09)
-			if c["LootBase"]:FindFirstChild("OpenLootTable") then
-				c["LootBase"]["OpenLootTable"].HoldDuration = 0
-				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
-			end
-		end
-	end
-end)
-scpath3.ChildAdded:Connect(function(c)
-	if fastl == true then
-		if table.find(allowed_loot,c.Name) then
-			task.wait(.09)
-			if c:FindFirstChild("Crate") then
-				c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
-				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
-			end
-		end
-	end
-end)
+				if fastl == true then
+					if table.find(allowed_loot,c.Name) then
+						task.wait(.09)
+						if c:FindFirstChild("OpenLootTable") then
+							c["OpenLootTable"].HoldDuration = 0
+							c["OpenLootTable"].MaxActivationDistance = fastum
+						elseif c:FindFirstChild("PickUpMoney") then
+							c["PickUpMoney"].HoldDuration = 0
+							c["PickUpMoney"].MaxActivationDistance = fastum
+						end
+					end
+				end
+			end)
+			scpath2.ChildAdded:Connect(function(c)
+				if fastl == true then
+					if table.find(allowed_loot,c.Name) then
+						task.wait(.09)
+						if c["LootBase"]:FindFirstChild("OpenLootTable") then
+							c["LootBase"]["OpenLootTable"].HoldDuration = 0
+							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+						end
+					end
+				end
+			end)
+			scpath3.ChildAdded:Connect(function(c)
+				if fastl == true then
+					if table.find(allowed_loot,c.Name) then
+						task.wait(.09)
+						if c:FindFirstChild("Crate") then
+							c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
+							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+						end
+					end
+				end
+			end)
 		end
 
 		autofst()
 
 		function nsci()
-	local Char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-	local Hum = Char:FindFirstChild("Humanoid")
-	
-	Hum.Changed:Connect(function(p)
-		if p == "PlatformStand" then
-			if nostopcontent == true then
-				Hum.PlatformStand = false
-				Char:FindFirstChild("HumanoidRootPart").Anchored = false
-			end
+			local Char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+
+			Char:WaitForChild("Humanoid").Changed:Connect(function(p)
+				if p == "PlatformStand" then
+					if nostopcontent == true then
+						Char:FindFirstChild("Humanoid").PlatformStand = false					
+						Char:FindFirstChild("HumanoidRootPart").Anchored = false
+					end
+				end
+			end)
 		end
-	end)
-end
 
 		nsci()
 
@@ -392,7 +391,7 @@ end
 				incognito(true)
 			end
 		end})
-		
+
 		FastuXf:Toggle({Title = "Fast Use",Default = fastl,Callback = function(Default) 
 			fastl = Default
 			FastUsefunc(Default)
