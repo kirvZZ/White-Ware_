@@ -2,7 +2,7 @@ if game.PlaceId == 15432890326 then
 	if game.CoreGui:FindFirstChild("SplixCode9") then
 		game:GetService("StarterGui"):SetCore("SendNotification",{Title = "White-Ware",Text = "Script already executed.",Duration = 10})
 	else
-		_G.SetupKeyCodeCenterSplix = Enum.KeyCode.Insert
+		_G.SetupKeyCodeBlackoutSplix = Enum.KeyCode.Insert
 		
 		local galkwgkqogklasgl = Instance.new("BoolValue",game.CoreGui)
 		galkwgkqogklasgl.Name = "SplixCode9"
@@ -44,9 +44,6 @@ if game.PlaceId == 15432890326 then
 		local Blinded = false
 		--VALUES
 		
-		coroutine.wrap(function()
-			
-		end)()
 
 		function Blind(v)
 
@@ -258,7 +255,7 @@ if game.PlaceId == 15432890326 then
 		end})
 		
 		HideBind:Keybind({Name = "Hide Key", Default = _G.SetupKeyCodeCenterSplix, KeybindName = "Readjustment", Mode = "Toggle", Pointer = _G.SetupKeyCodeCenterSplix,Callback = function(Default) 
-			_G.SetupKeyCodeCenterSplix = Default
+			_G.SetupKeyCodeBlackoutSplix = Default
 		end})
 
 		Aimlock:Dropdown({Name = "Hit-Part", Options = {"Head", "HumanoidRootPart"}, Default = "HumanoidRootPart", Pointer = _G.AimPartBotZ,Callback = function(Default) 
