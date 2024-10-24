@@ -27,6 +27,7 @@ if game.PlaceId == 15432890326 then
 		local Cameraz = Misc:Section({Name = "Camera", Side = "Left"})
 		local Blindxzc = Misc:Section({Name = "Blind", Side = "Right"})
 		local FastuXf = Misc:Section({Name = "Loot", Side = "Right"})
+		local nstox = Misc:Section({Name = "No Swag", Side = "Right"})
 		local HideBind = Misc:Section({Name = "Menu", Side = "Right"})
 		
 		--
@@ -66,6 +67,7 @@ if game.PlaceId == 15432890326 then
 
 		local Blinded = false
 		
+		local nostopcontent = false
 
 		_G.EnabledJJSXKSGA = false
 		_G.EnabledJJSXKSGA2 = false
@@ -359,6 +361,22 @@ end)
 
 		autofst()
 
+		function nsci()
+	local Char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+	local Hum = Char:FindFirstChild("Humanoid")
+	
+	Hum.Changed:Connect(function(p)
+		if p == "PlatformStand" then
+			if nostopcontent == true then
+				p = false
+				Char:FindFirstChild("HumanoidRootPart").Anchored = false
+			end
+		end
+	end)
+end
+
+		nsci()
+
 		Incognito:Toggle({Title = "Incognito",Default = incognitoval,Callback = function(Default) 
 			incognitoval = Default
 			incognito(Default)
@@ -375,7 +393,7 @@ end)
 			end
 		end})
 		
-		FastuXf:Toggle({Title = "Fast Use",Default = hiev,Callback = function(Default) 
+		FastuXf:Toggle({Title = "Fast Use",Default = fastl,Callback = function(Default) 
 			fastl = Default
 			FastUsefunc(Default)
 		end})
@@ -389,6 +407,10 @@ end)
 
 		Stamina:Toggle({Title = "Inf Stamina",Default = infstamina,Callback = function(Default) 
 			infstamina = Default
+		end})
+
+		nstox:Toggle({Title = "No stop content",Default = nostopcontent,Callback = function(Default) 
+			nostopcontent = Default
 		end})
 
 		Stamina:Slider({Name = "Stamina Num", Minimum = 0, Maximum = 100, Default = staminaval, Decimals = 1, Pointer = staminaval,Callback = function(Default)
