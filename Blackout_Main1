@@ -322,6 +322,7 @@ if game.PlaceId == 15432890326 then
 			scpath.ChildAdded:Connect(function(c)
 	if fastl == true then
 		if table.find(allowed_loot,c.Name) then
+			print(c.Name)
 			if c:FindFirstChild("OpenLootTable") then
 				c["OpenLootTable"].HoldDuration = 0
 				c["OpenLootTable"].MaxActivationDistance = fastum
