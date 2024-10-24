@@ -1,0 +1,421 @@
+if game.PlaceId == 15432890326 then
+	if game.CoreGui:FindFirstChild("SplixCode9") then
+		game:GetService("StarterGui"):SetCore("SendNotification",{Title = "White-Ware",Text = "Script already executed.",Duration = 10})
+	else
+		_G.SetupKeyCodeBlackoutSplix = Enum.KeyCode.Insert
+
+		local galkwgkqogklasgl = Instance.new("BoolValue",game.CoreGui)
+		galkwgkqogklasgl.Name = "SplixCode9"
+
+		local V,ProtectedRead = pcall(function()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/kirvZZ/White-Ware_/refs/heads/main/Blackout_NpcAimlock'))()
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/kirvZZ/White-Ware_/refs/heads/main/Blackout_PlayerAimlock'))()
+		end)
+
+
+		local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/kirvZZ/White-Ware_/refs/heads/main/Blackout_Library"))() -- Could Also Save It In Your Workspace And Do loadfile("Library.lua")()
+		local Window = Library:New({Name = "[BLACKOUT: REVIVAL] v1.21", Accent = Color3.fromRGB(72, 107, 255)})
+
+		--
+		local Aims = Window:Page({Name = "Combat"})
+		--local Visual = Window:Page({Name = "Visual"})
+		local Misc = Window:Page({Name = "Misc"})
+
+		local Aimlock = Aims:Section({Name = "Aim-lock", Side = "Left"})
+		local Incognito = Misc:Section({Name = "Incognito", Side = "Left"})
+		local Stamina = Misc:Section({Name = "Stamina-Modifier", Side = "Left"})
+		local Cameraz = Misc:Section({Name = "Camera", Side = "Left"})
+		local Blindxzc = Misc:Section({Name = "Blind", Side = "Right"})
+		local FastuXf = Misc:Section({Name = "Loot", Side = "Right"})
+		local HideBind = Misc:Section({Name = "Menu", Side = "Right"})
+		
+		--
+
+
+		--VALUES
+		
+		local scpath = workspace.Debris.Loot
+		local scpath2 = workspace.WaveSurvival.Loot
+		local scpath3 = workspace.Debris.Airdrop
+		
+		local allowed_loot = {
+			"DuffelBag",
+			"DeathBag",
+			"Money",
+			"LootCrate",
+			"Drop",
+		}
+
+		local reallevel = game.Players.LocalPlayer:GetAttribute("Level")
+		local flevel = reallevel
+
+		local incognitoval = false
+		local hiev = false
+
+		local infstamina = false
+		local staminaval = 100
+		
+		local fastl = false
+		local fastum = 7
+		
+		
+		_G.Flightx827Key = Enum.KeyCode.H
+		_G.Scriptx827Key = Enum.KeyCode.F8
+		_G.Flightx827Speed = 2
+		_G.Flightx827Noclip = true
+
+		local Blinded = false
+		--VALUES
+
+
+		function Blind(v)
+			local V,ProtectedCall = pcall(function()
+				if v == true then
+
+
+					local BlindPart_Name = "HumanoidRootPart"
+					local HumanoidPart_Name = "ClosedByBlind"
+
+
+					local nc = game.Players.LocalPlayer
+
+					if nc.Character then
+						Blinded = true
+						local HumanoidPart = nc.Character:WaitForChild("HumanoidRootPart")
+						local BlindPart = HumanoidPart:Clone()
+
+						HumanoidPart:AddTag("Real")
+						HumanoidPart.Name = HumanoidPart_Name
+
+
+						BlindPart:AddTag("Fake")
+						BlindPart.Parent = nc.Character
+						BlindPart.Name = BlindPart_Name
+
+
+						local InstancesFolder
+						if not game.Workspace.Terrain:FindFirstChild("InstancesFolder") then
+							InstancesFolder = Instance.new("Model")
+							InstancesFolder.Parent = game.Workspace.Terrain
+							InstancesFolder.Name = "InstancesFolder"
+						else
+							InstancesFolder = game.Workspace.Terrain["InstancesFolder"]
+						end
+
+						local InstanceView = HumanoidPart:Clone()
+
+						for _,i in InstanceView:GetChildren() do
+							i:Destroy()
+						end
+
+						InstanceView.Parent = InstancesFolder
+						InstanceView.Name = "Torso"
+
+						InstanceView.Material = Enum.Material.ForceField
+						InstanceView.Color = Color3.fromRGB(9, 137, 207)
+
+						InstanceView.CastShadow = false
+						InstanceView.Anchored = true
+
+						InstanceView.CanTouch = false
+						InstanceView.CanCollide = false
+						InstanceView.Transparency = 0
+
+						local InstanceHL = Instance.new("Highlight")
+						InstanceHL.Parent = InstanceView
+						InstanceHL.DepthMode = Enum.HighlightDepthMode.Occluded
+						InstanceHL.FillTransparency = 1
+						InstanceHL.OutlineTransparency = 0
+						InstanceHL.OutlineColor = Color3.fromRGB(255,255,255)
+
+						InstanceHL.Enabled = true
+
+						local InstanceHum = Instance.new("Humanoid")
+						InstanceHum.Parent = InstancesFolder
+
+						local InstanceCloth = Instance.new("Shirt")
+						InstanceCloth.ShirtTemplate = "http://www.roblox.com/asset/?id=144076357"
+
+						InstanceCloth.Parent = InstancesFolder
+
+
+					else
+						Blinded = false
+					end
+				else
+
+
+					local nc = game.Players.LocalPlayer
+
+					if nc.Character then
+						Blinded = false
+						for _,i in nc.Character:GetChildren() do
+							if i:HasTag("Real") then
+								i.Name = "HumanoidRootPart"
+								i:RemoveTag("Real")
+							elseif i:HasTag("Fake") then
+								i:Destroy()
+							end
+						end
+
+						if game.Workspace.Terrain:FindFirstChild("InstancesFolder") then
+							for _,i in game.Workspace.Terrain["InstancesFolder"]:GetChildren() do
+								i:Destroy()
+							end
+						end
+					end
+				end
+			end)
+		end
+		
+		function FastUsefunc(v)
+			local V,ProtectedCall = pcall(function()
+
+				if ((v) == true) then
+					for _,i in scpath:GetChildren() do
+						if table.find(allowed_loot,i.Name) then
+							if i:FindFirstChild("OpenLootTable") then
+								i["OpenLootTable"].HoldDuration = 0
+								i["OpenLootTable"].MaxActivationDistance = fastum
+							elseif i:FindFirstChild("PickUpMoney") then
+								i["PickUpMoney"].HoldDuration = 0
+								i["PickUpMoney"].MaxActivationDistance = fastum
+							end
+						end
+					end
+
+					for _,i in scpath2:GetChildren() do
+						if table.find(allowed_loot,i.Name) then
+							if i["LootBase"]:FindFirstChild("OpenLootTable") then
+								i["LootBase"]["OpenLootTable"].HoldDuration = 0
+								i["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+							end
+						end
+					end
+
+					for _,i in scpath3:GetChildren() do
+						if table.find(allowed_loot,i.Name) then
+							if i:FindFirstChild("Crate") then
+								i["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
+								i["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+							end
+						end
+					end
+				else
+					for _,i in scpath:GetChildren() do
+						if table.find(allowed_loot,i.Name) then
+							if i:FindFirstChild("OpenLootTable") then
+								i["OpenLootTable"].HoldDuration = 0.5
+								i["OpenLootTable"].MaxActivationDistance = 5
+							elseif i:FindFirstChild("PickUpMoney") then
+								i["PickUpMoney"].HoldDuration = 0.5
+								i["PickUpMoney"].MaxActivationDistance = 5
+							end
+						end
+					end
+
+					for _,i in scpath2:GetChildren() do
+						if table.find(allowed_loot,i.Name) then
+							if i["LootBase"]:FindFirstChild("OpenLootTable") then
+								i["LootBase"]["OpenLootTable"].HoldDuration = 0.5
+								i["LootBase"]["OpenLootTable"].MaxActivationDistance = 5
+							end
+						end
+					end
+
+					for _,i in scpath3:GetChildren() do
+						if table.find(allowed_loot,i.Name) then
+							if i:FindFirstChild("Crate") then
+								i["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0.5
+								i["LootBase"]["OpenLootTable"].MaxActivationDistance = 5
+							end
+						end
+					end
+				end
+			end)
+		end
+		
+		function vggd(v)
+			if ((v) == true) then
+				game.Players.LocalPlayer.CameraMaxZoomDistance = 10000
+			else
+				game.Players.LocalPlayer.CameraMaxZoomDistance = 10
+			end
+		end
+		function hggd(v)
+			if ((v) == true) then
+				game.Players.LocalPlayer.DevCameraOcclusionMode = Enum.DevCameraOcclusionMode.Invisicam
+			else
+				game.Players.LocalPlayer.DevCameraOcclusionMode = Enum.DevCameraOcclusionMode.Zoom
+			end
+		end
+
+		function aei(v)
+			if ((v) == true) then
+				_G.EnabledJJSXKSGA = true
+			else
+				_G.EnabledJJSXKSGA = false
+			end
+		end
+
+		function aei2(v)
+			if ((v) == true) then
+				_G.EnabledJJSXKSGA2 = true
+			else
+				_G.EnabledJJSXKSGA2 = false
+			end
+		end
+
+		function incognito(v)
+			local V,ProtectedCall = pcall(function()
+				if v == true then
+					local LP = game.Players.LocalPlayer
+
+					local A = {"1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F"}
+					local B = "#"
+						..A[math.random(1,#A)]
+						..A[math.random(1,#A)]
+						..A[math.random(1,#A)]
+						..A[math.random(1,#A)]
+						..A[math.random(1,#A)]
+
+					local Username = B
+					local Level = flevel
+
+					local Path1 = LP.PlayerGui.MainStaticGui.RightTab.Leaderboard.PlayerList
+					local Path2 = Path1[LP.Name]
+					Path2.DisplayName.Text = Username
+					Path2.Username.Text = Username
+
+					LP:SetAttribute("Level",Level)
+					LP.PlayerGui:SetAttribute("Level",Level)
+
+
+				else
+					local LP = game.Players.LocalPlayer
+					local Username = ""
+					local Level = reallevel
+
+					local Path1 = LP.PlayerGui.MainStaticGui.RightTab.Leaderboard.PlayerList
+					local Path2 = Path1[LP.Name]
+					Path2.DisplayName.Text = LP.DisplayName
+					Path2.Username.Text = LP.Name
+
+					LP:SetAttribute("Level",Level)
+					LP.PlayerGui:SetAttribute("Level",Level)
+				end
+			end)
+		end
+
+		coroutine.wrap(function()
+			while task.wait() do
+				if infstamina == true then
+					game.Players.LocalPlayer.PlayerGui:SetAttribute("Stamina",staminaval)
+				end
+			end
+		end)()
+		
+		coroutine.wrap(function()
+			scpath.ChildAdded:Connect(function(c)
+				if fastl == true then
+					if table.find(allowed_loot,c.Name) then
+						if c:FindFirstChild("OpenLootTable") then
+							c["OpenLootTable"].HoldDuration = 0
+							c["OpenLootTable"].MaxActivationDistance = fastum
+						elseif c:FindFirstChild("PickUpMoney") then
+							c["PickUpMoney"].HoldDuration = 0
+							c["PickUpMoney"].MaxActivationDistance = fastum
+						end
+					end
+				end
+			end)
+			scpath2.ChildAdded:Connect(function(c)
+				if fastl == true then
+					if table.find(allowed_loot,c.Name) then
+						if c["LootBase"]:FindFirstChild("OpenLootTable") then
+							c["LootBase"]["OpenLootTable"].HoldDuration = 0
+							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+						end
+					end
+				end
+			end)
+			scpath3.ChildAdded:Connect(function(c)
+				if fastl == true then
+					if table.find(allowed_loot,c.Name) then
+						if c:FindFirstChild("Crate") then
+							c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
+							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+						end
+					end
+				end
+			end)
+		end)()
+
+		Incognito:Toggle({Title = "Incognito",Default = incognitoval,Callback = function(Default) 
+			incognitoval = Default
+			incognito(Default)
+		end})
+
+		Incognito:Toggle({Title = "Hide everyone [X]",Default = hiev,Callback = function(Default) 
+			hiev = Default
+		end})
+
+		Incognito:Slider({Name = "Level", Minimum = 0, Maximum = 50, Default = flevel, Decimals = 1, Pointer = flevel,Callback = function(Default)
+			flevel = Default
+			if incognitoval then
+				incognito(true)
+			else
+				incognito(false)
+			end
+		end})
+		
+		FastuXf:Toggle({Title = "Fast Use",Default = hiev,Callback = function(Default) 
+			fastl = Default
+			FastUsefunc(Default)
+		end})
+
+		FastuXf:Slider({Name = "Max Distance [Recommended 7]", Minimum = 3, Maximum = 12, Default = fastum, Decimals = 1, Pointer = fastum,Callback = function(Default)
+			fastum = Default
+		end})
+
+		Stamina:Toggle({Title = "Inf Stamina",Default = infstamina,Callback = function(Default) 
+			infstamina = Default
+		end})
+
+		Stamina:Slider({Name = "Stamina Num", Minimum = 0, Maximum = 100, Default = staminaval, Decimals = 1, Pointer = staminaval,Callback = function(Default)
+			staminaval = Default
+		end})
+
+		Cameraz:Toggle({Title = "Unlock Camera-Zoom",Default = false,Callback = function(Default) 
+			vggd(Default)
+		end})
+
+		Blindxzc:Toggle({Title = "Enable Blind [!]",Default = false,Callback = function(Default) 
+			Blind(Default)
+		end})
+
+		Cameraz:Toggle({Title = "Noclip Camera",Default = false,Callback = function(Default) 
+			hggd(Default)
+		end})
+
+		Aimlock:Toggle({Title = "Aim-locking Players",Default = false,Callback = function(Default) 
+			aei(Default)
+		end})
+
+		Aimlock:Toggle({Title = "Aim-locking NPCs",Default = false,Callback = function(Default) 
+			aei2(Default)
+		end})
+
+		HideBind:Keybind({Name = "Hide Menu Key", Default = _G.SetupKeyCodeBlackoutSplix, KeybindName = "Readjustment", Mode = "Toggle", Pointer = _G.SetupKeyCodeBlackoutSplix,Callback = function(Default) 
+			_G.SetupKeyCodeBlackoutSplix = Default
+		end})
+
+		--Aimlock:Dropdown({Name = "Hit-Part", Options = {"Head", "HumanoidRootPart"}, Default = "HumanoidRootPart", Pointer = _G.AimPartBotZ,Callback = function(Default) 
+		--	_G.AimPartBotZ = Default
+		--end})
+
+		Window:Initialize()
+	end
+else
+	game:GetService("StarterGui"):SetCore("SendNotification",{Title = "White-Ware",Text = "Script support only game 'Blackout'! ",Duration = 10})
+end
