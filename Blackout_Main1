@@ -65,7 +65,10 @@ if game.PlaceId == 15432890326 then
 		_G.Flightx827Noclip = true
 
 		local Blinded = false
-		--VALUES
+		
+
+		_G.EnabledJJSXKSGA = false
+		_G.EnabledJJSXKSGA2 = false
 
 
 		function Blind(v)
