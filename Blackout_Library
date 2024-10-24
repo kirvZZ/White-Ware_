@@ -49,9 +49,9 @@ local sections = {}
 --local themes = {}
 local theme = {
     accent = Color3.fromRGB(50, 100, 255),
-    light_contrast = Color3.fromRGB(1, 2, 11),
-    dark_contrast = Color3.fromRGB(1, 2, 11),
-    outline = Color3.fromRGB(0,0,0),
+    light_contrast = Color3.fromRGB(30, 30, 30),
+    dark_contrast = Color3.fromRGB(20, 20, 20),
+    outline = Color3.fromRGB(0, 0, 0),
     inline = Color3.fromRGB(50, 50, 50),
     textcolor = Color3.fromRGB(255, 255, 255),
     textborder = Color3.fromRGB(0, 0, 0),
@@ -375,7 +375,7 @@ do
         --
         theme.accent = accent
         --
-        local window = {pages = {}, isVisible = false, uibind = _G.SetupKeyCodeBlackoutSplix, currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil}}
+        local window = {pages = {}, isVisible = false, uibind = _G.SetupKeyCodeBlackoutSplix , currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil}}
         --
         local main_frame = utility:Create("Frame", {Vector2.new(0,0)}, {
             Size = utility:Size(0, size.X, 0, size.Y),
@@ -982,7 +982,7 @@ do
         end
         --
         library.began[#library.began + 1] = function(Input)
-            if Input.KeyCode == _G.SetupKeyCodeBlackoutSplix then
+            if Input.KeyCode == _G.SetupKeyCodeBlackoutSplix   then
                 window:Fade()
             end
             --[[
