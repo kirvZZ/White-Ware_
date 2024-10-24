@@ -373,7 +373,7 @@ if game.PlaceId == 15432890326 then
 					end
 				end)
 			end
-
+			nxnxnx()
 			game.Players.LocalPlayer.CharacterAdded:Connect(nxnxnx)
 		end
 
