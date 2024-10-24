@@ -386,6 +386,9 @@ end)
 
 		FastuXf:Slider({Name = "Max Distance [Recommended 7]", Minimum = 3, Maximum = 12, Default = fastum, Decimals = 1, Pointer = fastum,Callback = function(Default)
 			fastum = Default
+			if fastl == true then
+				FastUsefunc(true)
+			end
 		end})
 
 		Stamina:Toggle({Title = "Inf Stamina",Default = infstamina,Callback = function(Default) 
