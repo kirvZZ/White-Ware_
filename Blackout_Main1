@@ -320,38 +320,39 @@ if game.PlaceId == 15432890326 then
 		
 		coroutine.wrap(function()
 			scpath.ChildAdded:Connect(function(c)
-				if fastl == true then
-					if table.find(allowed_loot,c.Name) then
-						if c:FindFirstChild("OpenLootTable") then
-							c["OpenLootTable"].HoldDuration = 0
-							c["OpenLootTable"].MaxActivationDistance = fastum
-						elseif c:FindFirstChild("PickUpMoney") then
-							c["PickUpMoney"].HoldDuration = 0
-							c["PickUpMoney"].MaxActivationDistance = fastum
-						end
-					end
-				end
-			end)
-			scpath2.ChildAdded:Connect(function(c)
-				if fastl == true then
-					if table.find(allowed_loot,c.Name) then
-						if c["LootBase"]:FindFirstChild("OpenLootTable") then
-							c["LootBase"]["OpenLootTable"].HoldDuration = 0
-							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
-						end
-					end
-				end
-			end)
-			scpath3.ChildAdded:Connect(function(c)
-				if fastl == true then
-					if table.find(allowed_loot,c.Name) then
-						if c:FindFirstChild("Crate") then
-							c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
-							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
-						end
-					end
-				end
-			end)
+	if fastl == true then
+		if table.find(allowed_loot,c.Name) then
+			if c:FindFirstChild("OpenLootTable") then
+				c["OpenLootTable"].HoldDuration = 0
+				c["OpenLootTable"].MaxActivationDistance = fastum
+			elseif c:FindFirstChild("PickUpMoney") then
+				c["PickUpMoney"].HoldDuration = 0
+				c["PickUpMoney"].MaxActivationDistance = fastum
+			end
+		end
+	end
+end)
+scpath2.ChildAdded:Connect(function(c)
+	if fastl == true then
+		if table.find(allowed_loot,c.Name) then
+			if c["LootBase"]:FindFirstChild("OpenLootTable") then
+				c["LootBase"]["OpenLootTable"].HoldDuration = 0
+				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+			end
+		end
+	end
+end)
+scpath3.ChildAdded:Connect(function(c)
+	if fastl == true then
+		if table.find(allowed_loot,c.Name) then
+			if c:FindFirstChild("Crate") then
+				c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
+				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+			end
+		end
+	end
+end)
+
 		end)()
 
 		Incognito:Toggle({Title = "Incognito",Default = incognitoval,Callback = function(Default) 
