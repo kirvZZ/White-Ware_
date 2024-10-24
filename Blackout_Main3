@@ -362,17 +362,19 @@ if game.PlaceId == 15432890326 then
 		autofst()
 
 		function nsci()
-			local Char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-
-			Char:WaitForChild("Humanoid").Changed:Connect(function(p)
-				if p == "PlatformStand" then
-					if nostopcontent == true then
-						Char:FindFirstChild("Humanoid").PlatformStand = false					
-						task.wait(.08)
-						Char:FindFirstChild("HumanoidRootPart").Anchored = false
+			function nxnxnx()
+				Char:WaitForChild("Humanoid").Changed:Connect(function(p)
+					if p == "PlatformStand" then
+						if nostopcontent == true then
+							Char:FindFirstChild("Humanoid").PlatformStand = false					
+							task.wait(.08)
+							Char:FindFirstChild("HumanoidRootPart").Anchored = false
+						end
 					end
-				end
-			end)
+				end)
+			end
+
+			game.Players.LocalPlayer.CharacterAdded:Connect(nxnxnx)
 		end
 
 		nsci()
