@@ -363,6 +363,7 @@ if game.PlaceId == 15432890326 then
 
 		function nsci()
 			function nxnxnx()
+				local Char = game.Players.LocalPlayer.Character
 				Char:WaitForChild("Humanoid").Changed:Connect(function(p)
 					if p == "PlatformStand" then
 						if nostopcontent == true then
