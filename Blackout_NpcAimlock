@@ -46,7 +46,7 @@ end
 function FindNearestNpc()
 	local dist = math.huge
 	local Target = nil
-	for _, v in pairs(workspace.NPCs:GetPlayers()) do
+	for _, v in pairs(workspace.NPCs:GetChildren()) do
 		for _,i in pairs(v:GetChildren()) do 
 			if i:IsA("Model") then
 				if i:FindFirstChild("Head") then
