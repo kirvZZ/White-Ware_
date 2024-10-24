@@ -20,7 +20,7 @@ if game.PlaceId == 15432890326 then
 		
 		--
 		local Aims = Window:Page({Name = "Combat"})
-		local Visual = Window:Page({Name = "Visual"})
+		--local Visual = Window:Page({Name = "Visual"})
 		local Misc = Window:Page({Name = "Misc"})
 
 		local Aimlock = Aims:Section({Name = "Aim-lock", Side = "Left"})
