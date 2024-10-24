@@ -322,10 +322,8 @@ if game.PlaceId == 15432890326 then
 			scpath.ChildAdded:Connect(function(c)
 	if fastl == true then
 		if table.find(allowed_loot,c.Name) then
-			print(c.Name)
-			task.wait(.05)
+			task.wait(.09)
 			if c:FindFirstChild("OpenLootTable") then
-				print("Founded, setting.")
 				c["OpenLootTable"].HoldDuration = 0
 				c["OpenLootTable"].MaxActivationDistance = fastum
 			elseif c:FindFirstChild("PickUpMoney") then
@@ -338,7 +336,7 @@ end)
 scpath2.ChildAdded:Connect(function(c)
 	if fastl == true then
 		if table.find(allowed_loot,c.Name) then
-			task.wait(.05)
+			task.wait(.09)
 			if c["LootBase"]:FindFirstChild("OpenLootTable") then
 				c["LootBase"]["OpenLootTable"].HoldDuration = 0
 				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
@@ -349,7 +347,7 @@ end)
 scpath3.ChildAdded:Connect(function(c)
 	if fastl == true then
 		if table.find(allowed_loot,c.Name) then
-			task.wait(.05)
+			task.wait(.09)
 			if c:FindFirstChild("Crate") then
 				c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
 				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
@@ -374,8 +372,6 @@ end)
 			flevel = Default
 			if incognitoval then
 				incognito(true)
-			else
-				incognito(false)
 			end
 		end})
 		
