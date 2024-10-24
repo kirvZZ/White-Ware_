@@ -318,12 +318,14 @@ if game.PlaceId == 15432890326 then
 			end
 		end)()
 		
-		coroutine.wrap(function()
+		function autofst()
 			scpath.ChildAdded:Connect(function(c)
 	if fastl == true then
 		if table.find(allowed_loot,c.Name) then
 			print(c.Name)
+			task.wait(.05)
 			if c:FindFirstChild("OpenLootTable") then
+				print("Founded, setting.")
 				c["OpenLootTable"].HoldDuration = 0
 				c["OpenLootTable"].MaxActivationDistance = fastum
 			elseif c:FindFirstChild("PickUpMoney") then
@@ -336,6 +338,7 @@ end)
 scpath2.ChildAdded:Connect(function(c)
 	if fastl == true then
 		if table.find(allowed_loot,c.Name) then
+			task.wait(.05)
 			if c["LootBase"]:FindFirstChild("OpenLootTable") then
 				c["LootBase"]["OpenLootTable"].HoldDuration = 0
 				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
@@ -346,6 +349,7 @@ end)
 scpath3.ChildAdded:Connect(function(c)
 	if fastl == true then
 		if table.find(allowed_loot,c.Name) then
+			task.wait(.05)
 			if c:FindFirstChild("Crate") then
 				c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
 				c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
@@ -353,8 +357,9 @@ scpath3.ChildAdded:Connect(function(c)
 		end
 	end
 end)
+		end
 
-		end)()
+		autofst()
 
 		Incognito:Toggle({Title = "Incognito",Default = incognitoval,Callback = function(Default) 
 			incognitoval = Default
