@@ -354,8 +354,8 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							c["PickUpMoney"].MaxActivationDistance = fastum
 							if expitemesp == true then
 								task.wait(.09)
-								if c:FindFirstChild("Loot") then
-									for _,xi in c["Loot"]:GetChildren() do
+								if c:FindFirstChild("LootTable") then
+									for _,xi in c["LootTable"]:GetChildren() do
 										if table.find(items_to_esp,xi.Name) then
 											if not c:FindFirstChild("Highlight") then
 												Instance.new("Highlight",c)
@@ -377,8 +377,8 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
 							if expitemesp == true then
 								task.wait(.09)
-								if c:FindFirstChild("Loot") then
-									for _,xi in c["Loot"]:GetChildren() do
+								if c:FindFirstChild("LootTable") then
+									for _,xi in c["LootTable"]:GetChildren() do
 										if table.find(items_to_esp,xi.Name) then
 											if not c:FindFirstChild("Highlight") then
 												Instance.new("Highlight",c)
@@ -400,8 +400,8 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
 							if expitemesp == true then
 								task.wait(.09)
-								if c:FindFirstChild("Loot") then
-									for _,xi in c["Loot"]:GetChildren() do
+								if c:FindFirstChild("LootTable") then
+									for _,xi in c["LootTable"]:GetChildren() do
 										if table.find(items_to_esp,xi.Name) then
 											if not c:FindFirstChild("Highlight") then
 												Instance.new("Highlight",c)
