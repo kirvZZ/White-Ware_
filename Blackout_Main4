@@ -28,6 +28,7 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 		local Blindxzc = Misc:Section({Name = "Blind", Side = "Right"})
 		local FastuXf = Misc:Section({Name = "Loot", Side = "Right"})
 		local nstox = Misc:Section({Name = "No Swag", Side = "Right"})
+		local expdf = Misc:Section({Name = "Expsensive Items", Side = "Right"})
 		local HideBind = Misc:Section({Name = "Menu", Side = "Right"})
 
 		--
@@ -46,6 +47,26 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 			"LootCrate",
 			"Drop",
 		}
+		
+		local items_to_esp = {
+			"Red Keycard",
+			"Green Keycard",
+			"Operator Helmet",
+			"Operator Vest",
+			"Operator Leggings",
+			"Operator Helmet MK2",
+			"Commander Helmet",
+			"Commander Vest",
+			"Commander Leggings",
+			"Photon Blades",
+			"Photon Accelerator",
+			"RPG-18",
+			"RPG-G",
+			"KS-23",
+			"RHS-12",
+		}
+		
+		local expitemesp = false
 
 		local reallevel = game.Players.LocalPlayer:GetAttribute("Level")
 		local flevel = reallevel
@@ -182,6 +203,17 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							if i:FindFirstChild("OpenLootTable") then
 								i["OpenLootTable"].HoldDuration = 0
 								i["OpenLootTable"].MaxActivationDistance = fastum
+								if expitemesp == true then
+									if i:FindFirstChild("Loot") then
+										for _,xi in i["Loot"]:GetChildren() do
+											if table.find(items_to_esp,xi.Name) then
+												if not i:FindFirstChild("Highlight") then
+													Instance.new("Highlight",i)
+												end
+											end
+										end
+									end
+								end
 							elseif i:FindFirstChild("PickUpMoney") then
 								i["PickUpMoney"].HoldDuration = 0
 								i["PickUpMoney"].MaxActivationDistance = fastum
@@ -194,6 +226,17 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							if i["LootBase"]:FindFirstChild("OpenLootTable") then
 								i["LootBase"]["OpenLootTable"].HoldDuration = 0
 								i["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+								if expitemesp == true then
+									if i:FindFirstChild("Loot") then
+										for _,xi in i["Loot"]:GetChildren() do
+											if table.find(items_to_esp,xi.Name) then
+												if not i:FindFirstChild("Highlight") then
+													Instance.new("Highlight",i)
+												end
+											end
+										end
+									end
+								end
 							end
 						end
 					end
@@ -203,6 +246,17 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							if i:FindFirstChild("Crate") then
 								i["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
 								i["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+								if expitemesp == true then
+									if i:FindFirstChild("Loot") then
+										for _,xi in i["Loot"]:GetChildren() do
+											if table.find(items_to_esp,xi.Name) then
+												if not i:FindFirstChild("Highlight") then
+													Instance.new("Highlight",i)
+												end
+											end
+										end
+									end
+								end
 							end
 						end
 					end
@@ -388,7 +442,11 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 		Incognito:Toggle({Title = "Hide everyone [X]",Default = hiev,Callback = function(Default) 
 			hiev = Default
 		end})
-
+		
+		expdf:Toggle({Title = "Show bags with expensive items",Default = expitemesp,Callback = function(Default) 
+			expitemesp = Default
+		end})
+		
 		Incognito:Slider({Name = "Level", Minimum = 0, Maximum = 50, Default = flevel, Decimals = 1, Pointer = flevel,Callback = function(Default)
 			flevel = Default
 			if incognitoval then
