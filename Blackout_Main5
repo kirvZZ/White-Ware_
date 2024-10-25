@@ -1,4 +1,4 @@
-if game.PlaceId == 15432890326 then
+if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 then
 	if game.CoreGui:FindFirstChild("SplixCode9") then
 		game:GetService("StarterGui"):SetCore("SendNotification",{Title = "White-Ware",Text = "Script already executed.",Duration = 10})
 	else
