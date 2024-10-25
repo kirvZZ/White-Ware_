@@ -203,17 +203,6 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							if i:FindFirstChild("OpenLootTable") then
 								i["OpenLootTable"].HoldDuration = 0
 								i["OpenLootTable"].MaxActivationDistance = fastum
-								if expitemesp == true then
-									if i:FindFirstChild("Loot") then
-										for _,xi in i["Loot"]:GetChildren() do
-											if table.find(items_to_esp,xi.Name) then
-												if not i:FindFirstChild("Highlight") then
-													Instance.new("Highlight",i)
-												end
-											end
-										end
-									end
-								end
 							elseif i:FindFirstChild("PickUpMoney") then
 								i["PickUpMoney"].HoldDuration = 0
 								i["PickUpMoney"].MaxActivationDistance = fastum
@@ -226,17 +215,6 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							if i["LootBase"]:FindFirstChild("OpenLootTable") then
 								i["LootBase"]["OpenLootTable"].HoldDuration = 0
 								i["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
-								if expitemesp == true then
-									if i:FindFirstChild("Loot") then
-										for _,xi in i["Loot"]:GetChildren() do
-											if table.find(items_to_esp,xi.Name) then
-												if not i:FindFirstChild("Highlight") then
-													Instance.new("Highlight",i)
-												end
-											end
-										end
-									end
-								end
 							end
 						end
 					end
@@ -246,17 +224,6 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 							if i:FindFirstChild("Crate") then
 								i["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
 								i["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
-								if expitemesp == true then
-									if i:FindFirstChild("Loot") then
-										for _,xi in i["Loot"]:GetChildren() do
-											if table.find(items_to_esp,xi.Name) then
-												if not i:FindFirstChild("Highlight") then
-													Instance.new("Highlight",i)
-												end
-											end
-										end
-									end
-								end
 							end
 						end
 					end
@@ -385,6 +352,18 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 						elseif c:FindFirstChild("PickUpMoney") then
 							c["PickUpMoney"].HoldDuration = 0
 							c["PickUpMoney"].MaxActivationDistance = fastum
+							if expitemesp == true then
+								task.wait(.09)
+								if c:FindFirstChild("Loot") then
+									for _,xi in c["Loot"]:GetChildren() do
+										if table.find(items_to_esp,xi.Name) then
+											if not c:FindFirstChild("Highlight") then
+												Instance.new("Highlight",c)
+											end
+										end
+									end
+								end
+							end
 						end
 					end
 				end
@@ -396,6 +375,18 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 						if c["LootBase"]:FindFirstChild("OpenLootTable") then
 							c["LootBase"]["OpenLootTable"].HoldDuration = 0
 							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+							if expitemesp == true then
+								task.wait(.09)
+								if c:FindFirstChild("Loot") then
+									for _,xi in c["Loot"]:GetChildren() do
+										if table.find(items_to_esp,xi.Name) then
+											if not c:FindFirstChild("Highlight") then
+												Instance.new("Highlight",c)
+											end
+										end
+									end
+								end
+							end
 						end
 					end
 				end
@@ -407,6 +398,18 @@ if game.PlaceId == 15432890326 or game.PlaceId == 18243214051 or game.PlaceId ==
 						if c:FindFirstChild("Crate") then
 							c["Crate"]["LootBase"]["OpenLootTable"].HoldDuration = 0
 							c["LootBase"]["OpenLootTable"].MaxActivationDistance = fastum
+							if expitemesp == true then
+								task.wait(.09)
+								if c:FindFirstChild("Loot") then
+									for _,xi in c["Loot"]:GetChildren() do
+										if table.find(items_to_esp,xi.Name) then
+											if not c:FindFirstChild("Highlight") then
+												Instance.new("Highlight",c)
+											end
+										end
+									end
+								end
+							end
 						end
 					end
 				end
