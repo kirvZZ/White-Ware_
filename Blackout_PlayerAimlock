@@ -76,7 +76,7 @@ UIS.InputBegan:Connect(function(Input)
 			while HoldingM2 and _G.EnabledJJSXKSGA == true do task.wait(.000001)
 				if Lock and The_Enemy ~= nil then
 					local Future = The_Enemy:FindFirstChild(_G.AimPartBotZ).CFrame
-					game:GetService("TweenService"):Create(MyView,TweenInfo.new(1),{CFrame = CFrame.lookAt(MyView.CFrame.Position, Future.Position)}):Play()
+					MyView.CFrame = CFrame.lookAt(MyView.CFrame.Position, Future.Position)
 					CursorLock()
 				end
 			end
